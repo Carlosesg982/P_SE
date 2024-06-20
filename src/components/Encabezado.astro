@@ -12,22 +12,22 @@ interface MenuOption {
 }
 
 const menuOptions: MenuOption[] = [
-    { name: 'Course Management', url: '/cm' },
-    { name: 'Interactive Presentations', url: '#' },
+    { name: 'Presentaciones interactivas', url: '#' },
     { name: 'Simulations', url: '#' },
-    { name: 'AI Assessments', url: '#' },
-    { name: 'Skill Monitoring', url: '#' },
+    { name: 'Evaluaciones de IA', url: '#' },
+    { name: 'Monitoreo de habilidades', url: '#' },
     { name: 'Edu best practices', url: '#' },
 ];
 ---
 
 <header class="bg-azul text-white">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 text-white" aria-label="Global">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-1 lg:px-4 text-white" aria-label="Global">
         <div class="flex items-center gap-x-12 ">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">{title}</span>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                <img class="h-8 w-auto" src="/public/logo.png" alt="">
             </a>
+            <a>Oficraft</a>
             <div class="hidden lg:flex lg:gap-x-12">
                 {menuOptions.map((option) => (
                     <a href={option.url} class="text-sm font-semibold leading-6">{option.name}</a>
@@ -48,9 +48,9 @@ const menuOptions: MenuOption[] = [
     </nav>
 
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div id="mobile-menu" class="hidden lg:hidden " role="dialog" aria-modal="true">
+    <div id="mobile-menu" class="hidden lg:hidden bg-azul " role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
-        <div class="fixed inset-0 z-10"></div>
+        <div class="fixed inset-0 z-10 bg-azul"></div>
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 ">
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
@@ -67,11 +67,12 @@ const menuOptions: MenuOption[] = [
             <div class="mt-6 flow-root">
                 <div class="my-6">
                     <div class="space-y-2 py-6">
-                        <a href="/cm" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Course Management</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Interactive Presentations</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">AI Assessments</a>
+
+                        <a href="/cm" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Gestión de cursos</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Presentaciones interactivas</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Evaluaciones de IA</a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Skill Monitoring</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Edu best practices</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Monitoreo de habilidades</a>
                     </div>
                     <div class="py-6 text-white">
                         <a href="#" class="text-white">Log in</a>

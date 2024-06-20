@@ -4,10 +4,12 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'e9e4f0': '#E9E4F0',
-				'd3cce3': '#D3CCE3',
 				'azul' : '#002060',
 			  },
+			backgroundImage: {
+			'f-banner': "url('/public/f-banner.png')",
+			'custom-gradient': 'linear-gradient(to right, #E9E4F0, #D3CCE3)',
+			},
 		},
 	},
 	plugins: [],
