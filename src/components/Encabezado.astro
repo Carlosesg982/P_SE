@@ -14,25 +14,27 @@ interface MenuOption {
 const menuOptions: MenuOption[] = [
     { name: 'Quien eres', url: '/Aprende_como' },
     { name: 'Tu proximo trabajo', url: '/Proximo_trabajo' },
-    { name: 'Evaluaciones de IA', url: '#' },
-    { name: 'Monitoreo de habilidades', url: '#' },
+    { name: 'Tu candidato', url: '/Proximo_empleado' },
     { name: 'Quienes somos', url: '/Quienes_somos' },
 ];
 ---
 
 <header class="bg-azul text-white">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-1 lg:px-4 text-white" aria-label="Global">
-        <div class="flex items-center gap-x-12 ">
-            <a href="/" class="-m-1.5 p-1.5">
+        <div class="flex items-center gap-x-12 text-mx">
+            <a href="/" class="-m-1.5 p-1.5 flex">
                 <span class="sr-only">{title}</span>
                 <img class="h-8 w-auto" src="/public/logo.png" alt="">
+                <button class="px-3 font-semibold leading-6">Oficraft</button>
             </a>
-            <a>Oficraft</a>
-            <div class="hidden lg:flex lg:gap-x-12">
-                {menuOptions.map((option) => (
-                    <a href={option.url} class="text-sm font-semibold leading-6">{option.name}</a>
-                ))}
-            </div>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12 text-sm">
+            {menuOptions.map((option) => (
+                <a href={option.url} class="text-sm font-semibold leading-6">{option.name}</a>
+            ))}
+        </div>
+        <div class="hidden lg:flex text-white">
+            <a href="#" class="text-sm font-semibold leading-6">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="flex lg:hidden text-white">
             <button id="menu-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
@@ -41,9 +43,6 @@ const menuOptions: MenuOption[] = [
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-        </div>
-        <div class="hidden lg:flex text-white">
-            <a href="#" class="text-sm font-semibold leading-6">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
 
@@ -67,12 +66,9 @@ const menuOptions: MenuOption[] = [
             <div class="mt-6 flow-root">
                 <div class="my-6">
                     <div class="space-y-2 py-6">
-
-                        <a href="/cm" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Gestión de cursos</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Presentaciones interactivas</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Evaluaciones de IA</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Skill Monitoring</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">Quienes somos</a>
+                        {menuOptions.map((option) => (
+                            <a href={option.url} class="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50">{option.name}</a>
+                        ))}
                     </div>
                     <div class="py-6 text-white">
                         <a href="#" class="text-white">Log in</a>
