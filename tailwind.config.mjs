@@ -7,7 +7,7 @@ export default {
 				'azul' : '#002060',
 			  },
 			backgroundImage: {
-			'f-banner': "url('/public/f-banner.png')",
+			'f-banner': "url('/images/f-banner.png')",
 			'custom-gradient': 'linear-gradient(to right, #E9E4F0, #D3CCE3)',
 			},
 		},
