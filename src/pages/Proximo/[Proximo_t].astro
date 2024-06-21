@@ -1,0 +1,142 @@
+---
+import Base from "../../layouts/Base.astro"
+import Modal from "../../components/Modal.astro"
+
+export function getStaticPaths () {
+    return [
+        { params: { Proximo_t: "Herramientas" } },
+        { params: { Proximo_t: "Plataforma" } },
+        { params: { Proximo_t: "Recursos" } },
+        { params: { Proximo_t: "Visibilidad" } },
+    ];
+}
+
+const {Proximo_t } = Astro.params; 
+
+let titulo = "";
+let descripcion = "";
+
+if (Proximo_t === "Herramientas") {
+    titulo = "Herramientas Avanzadas de Búsqueda de Empleo";
+    descripcion = "Filtros Personalizados: Permite a los usuarios buscar empleos específicos según su área de expertise, ubicación y otros criterios relevantes."
+    descripcion += "<br>";
+    descripcion += "Alertas de Empleo: Configura notificaciones para recibir avisos sobre nuevas ofertas de empleo que coincidan con tu perfil.";
+}if (Proximo_t === "Plataforma") {
+    titulo = "Plataforma Intuitiva";
+    descripcion = "Interfaz Amigable: Nuestro diseño es fácil de usar, permitiendo una navegación rápida y eficiente.";
+    descripcion += "<br>";
+    descripcion += "Aplicación Móvil: Accede a todas las funciones desde tu dispositivo móvil para buscar empleo en cualquier momento y lugar.";
+}if (Proximo_t === "Recursos") {
+    titulo = "Recursos para el Desarrollo Profesional";
+    descripcion = "Talleres y Webinars: Ofrecemos eventos regulares para mejorar tus habilidades técnicas y blandas.";
+    descripcion += "<br>";
+    descripcion += "Asesoría Personalizada: Nuestro equipo de expertos está disponible para ayudarte a preparar tu currículum, carta de presentación y para brindarte consejos sobre entrevistas.";
+}if (Proximo_t === "Visibilidad") {
+    titulo = "Visibilidad para Empleadores";
+    descripcion = "Perfil Profesional: Crea un perfil detallado que resalte tus habilidades y experiencia para atraer la atención de los empleadores.";
+    descripcion += "<br>";
+    descripcion += "Red de Contactos: Conecta con empresas que buscan talento en oficios técnicos.";
+}
+---
+
+<Base title={Proximo_t}>
+  <div class="py-3 px-3">
+    <section class="bg-custom-gradient rounded-xl">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold sm:text-4xl">Que ofrecemos para encontrar tu proximo trabajo</h2>
+      
+            <p class="mt-3">
+                En Oficraft, entendemos la importancia de encontrar el empleo adecuado que se ajuste a tus habilidades
+                  y aspiraciones, y estamos aquí para facilitar ese proceso.
+            </p>
+          </div>
+      
+          <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <a id="openModal"
+              class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+              href="/Proximo/Herramientas"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search size-10 text-azul"
+                     viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg>
+              
+              
+      
+              <h2 class="mt-4 text-xl font-bold">Herramientas Avanzadas de Búsqueda de Empleo</h2>
+      
+              <p class="mt-1 text-sm text-gray-300">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li>Filtros Personalizados</li>
+                  <li>Alertas de Empleo</li>
+              </ul>
+              </p>
+            </a>
+      
+            <a
+              class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+              href="/Proximo/Plataforma"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-window size-10 text-azul" viewBox="0 0 16 16">
+                <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1z"/>
+              </svg>
+      
+              <h2 class="mt-4 text-xl font-bold">Plataforma Intuitiva</h2>
+      
+              <p class="mt-1 text-sm text-gray-300">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li>Interfaz Amigable</li>
+                  <li>Aplicación Móvil</li>
+              </ul>
+              </p>
+            </a>
+      
+            <a
+              class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+              href="/Proximo/Recursos"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-workspace size-10 text-azul" viewBox="0 0 16 16">
+              <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+              <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+            </svg>
+      
+              <h2 class="mt-4 text-xl font-bold">Recursos para el Desarrollo Profesional</h2>
+      
+              <p class="mt-1 text-sm text-gray-300">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li>Talleres y Webinars</li>
+                  <li>Asesoría Personalizada</li>
+              </ul>
+              </p>
+            </a>
+      
+            <a
+              class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+              href="/Proximo/Visibilidad"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle size-10 text-azul" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+      
+              <h2 class="mt-4 text-xl font-bold">Visibilidad para Empleadores</h2>
+      
+              <p class="mt-1 text-sm text-gray-300">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li>Perfil Profesional</li>
+                  <li>Red de Contactos</li>
+              </ul>
+        
+              </p>
+            </a>
+      
+            
+          </div>
+        </div>
+      </section>
+</div>
+
+<Modal titulo={titulo} padre="/Proximo_trabajo" contenido={descripcion}/>
+</Base>

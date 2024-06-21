@@ -1,24 +1,26 @@
 ---
 export interface Props {
-    id : string;
+    titulo : string;
+    padre : string;
+    contenido : string;
 }
 
-const { id } = Astro.props;
+const { titulo, padre, contenido } = Astro.props;
 
 
 ---
 
-<div id={id} class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-    <div class="bg-white rounded-lg shadow-lg w-1/3">
+<div class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+    <div class="bg-white rounded-lg shadow-lg w-1/2">
       <div class="px-6 py-4">
         <div class="flex justify-between items-center">
-          <h2 class="text-2xl font-bold">Título del Modal</h2>
-          <button id="closeModal" class="text-gray-500 hover:text-gray-800">&times;</button>
+          <h2 class="text-2xl font-bold">{titulo}</h2>
+          <a class="text-gray-500 hover:text-gray-800" href={padre} >&times;</a>
         </div>
-        <p class="mt-4">Contenido del modal...</p>
+        <p>{contenido}</p>
       </div>
       <div class="px-6 py-4 bg-gray-100 text-right">
-        <button id="closeModalFooter" class="px-4 py-2 bg-red-500 text-white rounded">Cerrar</button>
+        <a class="px-4 py-2 bg-red-500 text-white rounded" href={padre}>Cerrar</a>
       </div>
     </div>
   </div>
